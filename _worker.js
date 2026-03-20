@@ -244,7 +244,7 @@ async function handleRawRequest(regionStr, format, limit = 0, requestUrl = null)
 function getHtml() {
     return `
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ru-RU">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -297,7 +297,7 @@ function getHtml() {
         .btn-racing span { display: inline-block; transform: skew(15deg); }
         input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 
-        /* 🔥 Toast Стиль уведомления */
+        /* 🔥 Стиль уведомления Toast */
         #toast-container {
             position: fixed;
             top: 24px;
@@ -379,12 +379,12 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
     <main class="max-w-5xl mx-auto px-4 md:px-6 flex flex-col gap-6">
         <div class="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-[2rem] glass shadow-xl">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
-                <div><h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Глобальный узел</h2><p class="text-sm opacity-60">Нажмите на карту ниже, чтобы выбрать регион, который вы хотите вывести (Сортировка по количеству IP-адресов)</p></div>
+                <div><h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Глобальный узел</h2><p class="text-sm opacity-60">Нажмите на кнопку ниже, чтобы выбрать регион, который вы хотите отобразить (Сортировка по количеству IP-адресов)</p></div>
                 <div class="flex gap-3 w-full md:w-auto">
                 <button onclick="randomSelect()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-xs font-bold text-purple-600 dark:text-purple-400 hover:bg-purple-200 dark:hover:bg-purple-800/50 transition flex items-center justify-center gap-2">
                     <i data-lucide="dices" class="w-4 h-4"></i> Случайное
                 </button>
-                <button onclick="selectAll()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-blue-600 hover:opacity-70 transition">Выбрать все / отмена</button>
+                <button onclick="selectAll()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-blue-600 hover:opacity-70 transition">Выбрать все / Отменить</button>
             </div>            </div>
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 p-2" id="regionGrid"><div class="col-span-full py-10 text-center animate-pulse text-slate-400">Синхронизация глобальных источников данных...</div></div>
             <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -396,7 +396,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
         
         <div class="bg-white dark:bg-slate-900 rounded-[2rem] glass shadow-xl border border-slate-200 dark:border-slate-800">
         <div class="rounded-t-[2rem] px-6 py-4 border-b border-slate-50 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center bg-slate-50/50 dark:bg-slate-800/50 gap-4 relative">
-        <div class="flex items-center gap-3 self-start sm:self-center"><i data-lucide="terminal" size="16" class="text-blue-500"></i><span id="stats" class="text-xs font-bold opacity-40 uppercase tracking-tighter italic font-mono">WAITING FOR INPUT...</span></div>
+        <div class="flex items-center gap-3 self-start sm:self-center"><i data-lucide="terminal" size="16" class="text-blue-500"></i><span id="stats" class="text-xs font-bold opacity-40 uppercase tracking-tighter italic font-mono">ОЖИДАНИЕ ВВОДА ДАННЫХ...</span></div>
         
         <img src="https://github.com/666OS/ClashMac/raw/refs/heads/main/assets/cat.svg" class="hidden sm:block absolute left-1/2 -translate-x-1/2 -bottom-3 h-[110px] w-auto opacity-90 hover:scale-110 transition-transform duration-300 pointer-events-none">
         
@@ -405,14 +405,14 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                         <i data-lucide="filter" class="w-3.5 h-3.5 text-slate-400 mr-2"></i><span class="text-[10px] font-bold text-slate-400 mr-2 whitespace-nowrap">MAX</span>
                         <input id="limitInput" type="number" min="0" value="10" class="w-10 bg-transparent text-xs font-bold text-center outline-none text-slate-700 dark:text-slate-200 font-mono focus:text-blue-500 transition-colors" placeholder="0">
                     </div>
-                    <button onclick="copy()" class="flex-1 sm:flex-none bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-600 transition flex items-center justify-center gap-2 shadow-sm"><i data-lucide="copy" size="14"></i> 复制全部</button>
+                    <button onclick="copy()" class="flex-1 sm:flex-none bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-600 transition flex items-center justify-center gap-2 shadow-sm"><i data-lucide="copy" size="14"></i> Скопировать все</button>
                     
                     <div class="relative group z-20 flex-1 sm:flex-none">
-                        <button id="linkBtn" onclick="toggleLinkMenu(event)" class="w-full sm:w-auto bg-slate-900 dark:bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-xs hover:opacity-80 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"><i data-lucide="link" size="14"></i> API 地址</button>
+                        <button id="linkBtn" onclick="toggleLinkMenu(event)" class="w-full sm:w-auto bg-slate-900 dark:bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-xs hover:opacity-80 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"><i data-lucide="link" size="14"></i> API ссылка</button>
                         
                         <div id="linkMenu" class="link-menu absolute top-full left-1/2 w-48 pt-4 z-50">
                             <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl shadow-2xl p-2 flex flex-col gap-2 ring-1 ring-black/5">
-                                <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider py-1">Пожалуйста, выберите проект, который использует API</div>
+                                <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider py-1">Пожалуйста, выберите проект, который используете API</div>
                                 <button onclick="generateLink('CFnew')" class="btn-matrix h-10 text-xs flex items-center justify-center gap-2 w-full">
                                     <span>CFnew</span>
                                 </button>
