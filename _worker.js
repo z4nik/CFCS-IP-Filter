@@ -1,5 +1,5 @@
 /**
- * 地区名称映射 (全球主要 Cloudflare 节点所在国家/地区)
+ * Сопоставление названий регионов (Страны / регионы, в которых расположены основные мировые узлы Cloudflare)
  */
 const REGION_MAP = {
     // Азиатско-Тихоокеанский регион (Asia Pacific)
@@ -267,7 +267,7 @@ function getHtml() {
         .dropdown-menu { transform-origin: top right; transition: all 0.2s ease-out; transform: scale(0.95); opacity: 0; pointer-events: none; }
         .dropdown-menu.open { transform: scale(1); opacity: 1; pointer-events: auto; }
         
-        /* 弹窗菜单动画与定位修正 */
+        /* Анимация всплывающего меню и коррекция положения */
         .link-menu { 
             transform-origin: top center;
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); 
@@ -297,7 +297,7 @@ function getHtml() {
         .btn-racing span { display: inline-block; transform: skew(15deg); }
         input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 
-        /* 🔥 Toast 通知样式 */
+        /* 🔥 Toast Стиль уведомления */
         #toast-container {
             position: fixed;
             top: 24px;
@@ -359,7 +359,7 @@ function getHtml() {
 onclick="window.open('https://github.com/alienwaregf/Cloudflare-Country-Specific-IP-Filter', '_blank')"
 class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-lg ring-1 ring-black/5 dark:ring-white/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all px-3.5 hover:px-5 hover:gap-3 ease-out duration-500 hover:duration-1000">
 <i data-lucide="github" class="w-5 h-5 -rotate-0 group-hover:-rotate-12 transition-transform duration-500 flex-shrink-0"></i>
-<span class="max-w-0 opacity-0 group-hover:max-w-xs group-hover:opacity-100 transition-all ease-out whitespace-nowrap font-bold overflow-hidden duration-500 hover:duration-1000">GitHub项目地址</span>
+<span class="max-w-0 opacity-0 group-hover:max-w-xs group-hover:opacity-100 transition-all ease-out whitespace-nowrap font-bold overflow-hidden duration-500 hover:duration-1000">GitHubАдрес проекта</span>
 </button>
 </div>
 
@@ -368,9 +368,9 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                     <i data-lucide="sun" class="w-6 h-6"></i>
                 </button>
                 <div id="themeDropdown" class="dropdown-menu absolute right-0 top-14 w-28 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 text-slate-700 dark:text-slate-200 ring-1 ring-black/5 dark:ring-white/10">
-                    <button onclick="setThemeMode('system')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="system"><span class="text-lg">🖥️</span> <span>系统</span></button>
-                    <button onclick="setThemeMode('light')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="light"><span class="text-lg">🌞</span> <span>浅色</span></button>
-                    <button onclick="setThemeMode('dark')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="dark"><span class="text-lg">🌙</span> <span>深色</span></button>
+                    <button onclick="setThemeMode('system')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="system"><span class="text-lg">🖥️</span> <span>Как в системе</span></button>
+                    <button onclick="setThemeMode('light')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="light"><span class="text-lg">🌞</span> <span>Светлый</span></button>
+                    <button onclick="setThemeMode('dark')" class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold theme-opt text-left" data-mode="dark"><span class="text-lg">🌙</span> <span>Темный</span></button>
                 </div>
             </div>
 
@@ -379,19 +379,19 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
     <main class="max-w-5xl mx-auto px-4 md:px-6 flex flex-col gap-6">
         <div class="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-[2rem] glass shadow-xl">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
-                <div><h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">全球节点</h2><p class="text-sm opacity-60">点击下方卡片选择要提取的地区 (按 IP 数量排序)</p></div>
+                <div><h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Глобальный узел</h2><p class="text-sm opacity-60">Нажмите на карту ниже, чтобы выбрать регион, который вы хотите вывести (Сортировка по количеству IP-адресов)</p></div>
                 <div class="flex gap-3 w-full md:w-auto">
                 <button onclick="randomSelect()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-xs font-bold text-purple-600 dark:text-purple-400 hover:bg-purple-200 dark:hover:bg-purple-800/50 transition flex items-center justify-center gap-2">
-                    <i data-lucide="dices" class="w-4 h-4"></i> 随机摇号
+                    <i data-lucide="dices" class="w-4 h-4"></i> Случайное
                 </button>
-                <button onclick="selectAll()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-blue-600 hover:opacity-70 transition">全选/取消</button>
+                <button onclick="selectAll()" class="w-full md:w-auto px-6 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-blue-600 hover:opacity-70 transition">Выбрать все / отмена</button>
             </div>            </div>
-            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 p-2" id="regionGrid"><div class="col-span-full py-10 text-center animate-pulse text-slate-400">正在同步全球数据源...</div></div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 p-2" id="regionGrid"><div class="col-span-full py-10 text-center animate-pulse text-slate-400">Синхронизация глобальных источников данных...</div></div>
             <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
               <button onclick="autoRun('cf_comma_short')" class="btn-matrix h-16 text-lg font-bold flex items-center justify-center gap-3 cursor-pointer"><i data-lucide="terminal-square" class="w-6 h-6"></i><span>CFnew</span></button>
               <button onclick="autoRun('cf_line_short')" class="btn-racing h-16 text-xl flex items-center justify-center gap-3 cursor-pointer"><i data-lucide="zap" class="w-6 h-6"></i><span>edgetunnel</span></button>
             </div>
-            <div id="loadingState" class="hidden text-center py-4 text-slate-500 animate-pulse text-sm mt-2"><i data-lucide="loader-2" class="animate-spin inline mr-2"></i> 正在从全球边缘节点提取数据...</div>
+            <div id="loadingState" class="hidden text-center py-4 text-slate-500 animate-pulse text-sm mt-2"><i data-lucide="loader-2" class="animate-spin inline mr-2"></i> Извлечение данных из глобальных пограничных узлов...</div>
         </div>
         
         <div class="bg-white dark:bg-slate-900 rounded-[2rem] glass shadow-xl border border-slate-200 dark:border-slate-800">
@@ -401,7 +401,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
         <img src="https://github.com/666OS/ClashMac/raw/refs/heads/main/assets/cat.svg" class="hidden sm:block absolute left-1/2 -translate-x-1/2 -bottom-3 h-[110px] w-auto opacity-90 hover:scale-110 transition-transform duration-300 pointer-events-none">
         
         <div class="flex items-center gap-2 w-full sm:w-auto z-10">
-                    <div class="flex items-center bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 shadow-sm mr-1 h-[34px]" title="单地区节点数量上限 (0为不限制)">
+                    <div class="flex items-center bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 shadow-sm mr-1 h-[34px]" title="Максимальное количество узлов в одном регионе (0 не ограничено)">
                         <i data-lucide="filter" class="w-3.5 h-3.5 text-slate-400 mr-2"></i><span class="text-[10px] font-bold text-slate-400 mr-2 whitespace-nowrap">MAX</span>
                         <input id="limitInput" type="number" min="0" value="10" class="w-10 bg-transparent text-xs font-bold text-center outline-none text-slate-700 dark:text-slate-200 font-mono focus:text-blue-500 transition-colors" placeholder="0">
                     </div>
@@ -412,7 +412,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                         
                         <div id="linkMenu" class="link-menu absolute top-full left-1/2 w-48 pt-4 z-50">
                             <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl shadow-2xl p-2 flex flex-col gap-2 ring-1 ring-black/5">
-                                <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider py-1">请选择使用 API 的项目</div>
+                                <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider py-1">Пожалуйста, выберите проект, который использует API</div>
                                 <button onclick="generateLink('CFnew')" class="btn-matrix h-10 text-xs flex items-center justify-center gap-2 w-full">
                                     <span>CFnew</span>
                                 </button>
@@ -424,13 +424,13 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                     </div>
                 </div>
             </div>
-            <textarea id="out" readonly class="w-full h-48 md:h-64 p-6 bg-transparent fira text-[13px] leading-relaxed outline-none resize-y text-slate-700 dark:text-slate-300 custom-scrollbar" placeholder="点击上方按钮提取，结果将显示在这里..."></textarea>
+            <textarea id="out" readonly class="w-full h-48 md:h-64 p-6 bg-transparent fira text-[13px] leading-relaxed outline-none resize-y text-slate-700 dark:text-slate-300 custom-scrollbar" placeholder="Нажмите кнопку выше, чтобы извлечь, результат будет показан здесь..."></textarea>
         </div>
     </main>
     <footer class="mt-12 py-8 border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-[13px] text-slate-500 dark:text-slate-400">
-                <span class="font-bold opacity-80">特别鸣谢：</span>
+                <span class="font-bold opacity-80">Особая благодарность：</span>
                 <a href="https://github.com/cmliu/edgetunnel" target="_blank" class="hover:text-blue-500 transition-colors flex items-center gap-1"><i data-lucide="github" class="w-3.5 h-3.5"></i> CM大佬</a>
                 <a href="https://github.com/byJoey/cfnew" target="_blank" class="hover:text-blue-500 transition-colors flex items-center gap-1"><i data-lucide="github" class="w-3.5 h-3.5"></i> Joey大佬</a>
             </div>
@@ -438,12 +438,12 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
         </div>
     </footer>
     <script>
-        // 🔥 显示 Toast 通知函数
+        // 🔥 Функция отображения всплывающего уведомления
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             
-            // 图标
+            // Иконка
             const icon = type === 'success' ? '<i data-lucide="check-circle-2" class="w-5 h-5"></i>' : '<i data-lucide="alert-circle" class="w-5 h-5"></i>';
             
             toast.className = \`toast \${type === 'success' ? 'toast-success' : 'toast-error'}\`;
@@ -452,7 +452,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
             container.appendChild(toast);
             lucide.createIcons();
 
-            // 3秒后移除
+            // Удалите через 3 секунды
             setTimeout(() => {
                 toast.style.animation = 'fadeOut 0.3s forwards';
                 setTimeout(() => toast.remove(), 300);
@@ -503,7 +503,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
             document.getElementById('loadingState').classList.add('hidden');
         }
         async function fetchIps() {
-            if(selected.length === 0) { showToast('请至少选择一个地区！', 'error'); return; }
+            if(selected.length === 0) { showToast('Пожалуйста, выберите хотя бы один регион！', 'error'); return; }
             try {
                 const res = await fetch(\`?api=1&region=\${selected.join(',')}&format=\${fmt}\`);
                 const data = await res.text();
@@ -512,16 +512,16 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                 const count = data ? (isComma ? data.split(',').length : data.trim().split('\\n').length) : 0;
                 document.getElementById('stats').innerText = \`SUCCESS: \${count} NODES FOUND\`;
                 document.getElementById('out').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                showToast(\`成功获取 \${count} 个节点 IP\`, 'success');
-            } catch(e) { showToast('获取数据失败，请重试', 'error'); console.error(e); }
+                showToast(\`Успешно полученный \${count} 个节点 IP\`, 'success');
+            } catch(e) { showToast('Не удалось получить данные, пожалуйста, попробуйте еще раз', 'error'); console.error(e); }
         }
         function copy() {
             const out = document.getElementById('out');
-            if(!out.value) { showToast('没有内容可复制', 'error'); return; }
+            if(!out.value) { showToast('Нет контента для копирования', 'error'); return; }
             navigator.clipboard.writeText(out.value);
-            showToast('内容已复制到剪贴板', 'success');
+            showToast('Содержимое было скопировано в буфер обмена', 'success');
         }
-        // 🎰 随机摇号功能
+        // 🎰 Функция случайной лотереи
         async function randomSelect() {
             selected = [];
             document.querySelectorAll('.region-card').forEach(el => el.classList.remove('active'));
@@ -542,7 +542,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
             const btn = document.querySelector('button[onclick="randomSelect()"]');
             const originalHtml = btn.innerHTML;
             
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> 摇号中...';
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Встряхивание...';
             btn.disabled = true;
 
             const interval = setInterval(() => {
@@ -581,33 +581,33 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
                 toggle(r);
             });
             
-            showToast('🎰 欧皇附体！随机选中了 ' + count + ' 个地区', 'success');
+            showToast('🎰 Мне невероятно повезло! Меня выбрали случайным образом! ' + count + ' 个地区', 'success');
         }
-        // 移动端点击切换菜单
+        // Нажмите на мобильный терминал, чтобы переключить меню
         function toggleLinkMenu(e) {
             e.stopPropagation();
             document.getElementById('linkMenu').classList.toggle('open');
         }
 
-        // 生成特定格式的链接并复制
+        // Сгенерируйте ссылку в определенном формате и скопируйте ее
         function generateLink(type) {
-            if(selected.length === 0) { showToast('请先选择地区！', 'error'); return; }
+            if(selected.length === 0) { showToast('Пожалуйста, сначала выберите регион！', 'error'); return; }
             const limitVal = document.getElementById('limitInput').value;
             const limit = parseInt(limitVal) || 0;
             
-            // 构建链接 (使用 - 分隔)
+            // Создавайте ссылки (используя дефисы в качестве разделителей).
             let url = \`\${window.location.origin}/\${type}/\${selected.join('-')}\`;
             
             if (limit > 0) { url += \`?limit=\${limit}\`; }
             
             navigator.clipboard.writeText(url);
             
-            let msg = \`【\${type}】订阅地址已复制到剪贴板\`;
-            if(limit > 0) msg += \`\\n(已限制单地区最大 \${limit} 个节点)\`;
+            let msg = \`【\${type}】Адрес подписки был скопирован в буфер обмена\`;
+            if(limit > 0) msg += \`\\n(Установлен максимальный лимит для одного региона. \${limit} 个节点)\`;
             
             showToast(msg, 'success');
             
-            // 关闭菜单
+            // Закрыть Меню
             document.getElementById('linkMenu').classList.remove('open');
         }
 
@@ -625,7 +625,7 @@ class="group h-12 flex items-center rounded-2xl bg-white dark:bg-slate-800 borde
         function setThemeMode(mode) { currentThemeMode = mode; localStorage.setItem('themeMode', mode); applyTheme(); document.getElementById('themeDropdown').classList.remove('open'); }
         function toggleDropdown(e) { e.stopPropagation(); document.getElementById('themeDropdown').classList.toggle('open'); }
         
-        // 全局点击关闭所有菜单
+        // Нажмите, чтобы закрыть все меню.
         function closeAllDropdowns(e) { 
             document.getElementById('themeDropdown').classList.remove('open');
             document.getElementById('linkMenu').classList.remove('open');
