@@ -125,7 +125,7 @@ export default {
 
 async function handleGetRegions() {
     try {
-        const res = await fetch("https://raw.githubusercontent.com/qwer-search/bestip/refs/heads/main/addressesapi.txt");
+        const res = await fetch("https://zip.cm.edu.kg/all.txt");
         const text = await res.text();
         const matches = text.match(/#[A-Z]+/g) || [];
         const counts = {};
@@ -160,7 +160,7 @@ async function handleRawRequest(regionStr, format, limit = 0, requestUrl = null)
     }
 
     try {
-        const response = await fetch("https://raw.githubusercontent.com/qwer-search/bestip/refs/heads/main/addressesapi.txt");
+        const response = await fetch("https://zip.cm.edu.kg/all.txt");
         let text = await response.text();
         text = text.replace(/^\uFEFF/, '');
         const lines = text.split('\n');
